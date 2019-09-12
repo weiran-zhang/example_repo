@@ -1,0 +1,58 @@
+---
+title: "template_rmd"
+author: "Weiran Zhang"
+date: "9/12/2019"
+output: html_document
+---
+
+
+I'm an R Markdown document! 
+
+# Section 1
+
+Here's section 1
+
+## Subsection 1.1
+
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+```{r}
+library(tidyverse)
+
+samp = rnorm(100)
+length(samp)
+
+plot_df = tibble(
+  x = rnorm(100),
+  y = 1 + 2 * x + rnorm(100)
+)
+
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r mean(samp)`.
+
+
+
+section 3
+
+```{r}
+
+df = tibble(
+  var = rnorm(500, mean = 1),
+  greater_than_0 = var > 0,
+  absolute_value = abs(var)
+)
+
+ggplot(df, aes(x = absolute_value)) + geom_histogram()
+```
+
+Here's a table
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
